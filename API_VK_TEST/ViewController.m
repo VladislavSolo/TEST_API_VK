@@ -7,6 +7,8 @@
 //
 #import "ViewController.h"
 #import "VSServerManager.h"
+#import "VSUserFriend.h"
+#import  <UIImageView+AFNetworking.h>
 
 @interface ViewController ()
 
@@ -18,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.friendsArray = [[NSMutableArray alloc] init];
     
     [self getFriendsFromServer];
     // Do any additional setup after loading the view, typically from a nib.
@@ -36,7 +39,7 @@
                                                           count:20
                                                       onSuccess:^(NSArray *friends) {
                                                           
-                                                          [self.friendsArray addObjectsFromArray:friends];
+                                                          self.friendsArray = [NSMutableArray arrayWithArray:friends];
                                                           [self.tableView reloadData];
                                                           
                                                       } onFailure:^(NSError *error, NSInteger statusCode) {
@@ -46,8 +49,7 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.friendsArray count];
 }
 
@@ -61,7 +63,36 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
+    VSUserFriend *user = [self.friendsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:user.imgURL];
+    
+    __weak UITableViewCell *weakCell = cell;
+    
+    cell.imageView.image = nil;
+    
+    [cell.imageView setImageWithURLRequest:request
+                          placeholderImage:nil
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.imageView.image = image;
+                                       [weakCell layoutSubviews];
+                                   }
+                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                   
+                                   
+                                   }];
+    
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 @end

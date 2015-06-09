@@ -7,6 +7,7 @@
 //
 
 #import "VSServerManager.h"
+#import "VSUserFriend.h"
 #import <AFNetworking.h>
 
 static NSUInteger user_id = 87290707;
@@ -56,12 +57,20 @@ static NSUInteger user_id = 87290707;
                              @"name_case": @"nom"};
 
     [self.requestOperationManager GET:@"friends.get" parameters:params
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                              success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
                                   
                                   NSArray *friends = [responseObject objectForKey:@"response"];
                                   
+                                  NSMutableArray *usersArray = [NSMutableArray array];
+                                  
+                                  for (NSDictionary *dict in friends) {
+                                      
+                                      VSUserFriend *user = [[VSUserFriend alloc] initWithDictionary:dict];
+                                      [usersArray addObject:user];
+                                  }
+                                  
                                   if (success) {
-                                      success(friends);
+                                      success(usersArray);
                                   }
                                   
                               }

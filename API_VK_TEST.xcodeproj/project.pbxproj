@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		868EFF9B1B27781B00F231B8 /* VSUserFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 868EFF9A1B27781B00F231B8 /* VSUserFriend.m */; };
 		86C801B31B25D83E00ABCC7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C801B21B25D83E00ABCC7C /* main.m */; };
 		86C801B61B25D83E00ABCC7C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C801B51B25D83E00ABCC7C /* AppDelegate.m */; };
 		86C801B91B25D83E00ABCC7C /* API_VK_TEST.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86C801B71B25D83E00ABCC7C /* API_VK_TEST.xcdatamodeld */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		4C8C8A81BDB82ECC44C093B5 /* Pods-API_VK_TEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API_VK_TEST.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API_VK_TEST/Pods-API_VK_TEST.debug.xcconfig"; sourceTree = "<group>"; };
 		5FC4A90CDACB0EC7E7B9917D /* libPods-API_VK_TEST.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-API_VK_TEST.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		868EFF991B27781B00F231B8 /* VSUserFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSUserFriend.h; sourceTree = "<group>"; };
+		868EFF9A1B27781B00F231B8 /* VSUserFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSUserFriend.m; sourceTree = "<group>"; };
 		86C801AD1B25D83E00ABCC7C /* API_VK_TEST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_VK_TEST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C801B11B25D83E00ABCC7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86C801B21B25D83E00ABCC7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +90,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		868EFF9C1B27782800F231B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				868EFF991B27781B00F231B8 /* VSUserFriend.h */,
+				868EFF9A1B27781B00F231B8 /* VSUserFriend.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		86C801A41B25D83E00ABCC7C = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				86C801BD1B25D83E00ABCC7C /* Main.storyboard */,
+				868EFF9C1B27782800F231B8 /* Model */,
 				86C801B41B25D83E00ABCC7C /* AppDelegate.h */,
 				86C801B51B25D83E00ABCC7C /* AppDelegate.m */,
 				86C801BA1B25D83E00ABCC7C /* ViewController.h */,
@@ -289,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C801DD1B25DD7700ABCC7C /* VSServerManager.m in Sources */,
+				868EFF9B1B27781B00F231B8 /* VSUserFriend.m in Sources */,
 				86C801B91B25D83E00ABCC7C /* API_VK_TEST.xcdatamodeld in Sources */,
 				86C801B61B25D83E00ABCC7C /* AppDelegate.m in Sources */,
 				86C801BC1B25D83E00ABCC7C /* ViewController.m in Sources */,
